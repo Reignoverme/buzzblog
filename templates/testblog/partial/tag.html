@@ -1,0 +1,6 @@
+<div class="article-tag">
+        {% for each in post.tags.all %}
+        <i class="fa fa-tag"></i>
+        {{each.name}}
+        {% endfor %}
+    </div>

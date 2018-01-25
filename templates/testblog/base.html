@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="To Infinity... and Beyond">
+<meta property="og:type" content="website">
+<meta property="og:title" content="O Y S">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="O Y S">
+<meta property="og:description" content="To Infinity... and Beyond">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="O Y S">
+<meta name="twitter:description" content="To Infinity... and Beyond">
+
+            {% load static %}
+            <link rel="shortcut icon" href="{% static '/images/favicon.ico' %}">
+            <link rel="icon" type="image/png" href="{% static '/images/favicon-192x192.png' %}" sizes="192x192">
+            <link rel="apple-touch-icon" sizes="180x180" href="{% static '/images/apple-touch-icon.png' %}">
+
+    <!-- title -->
+    <title>O Y S</title>
+    <!-- styles -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/pygments.css'  %}">
+</head>
+
+<body>
+    <!-- <% if (is_post()) { %>
+      <%- partial('_partial/post/actions_desktop') %>
+    <% } %> -->
+
+    <div class="content index width mx-auto px2 my4">
+      {% block post %}
+      {% endblock post%}
+
+      {% block index %}
+      {% endblock index %}
+    </div>
+
+  <footer id="footer">
+    <div class="footer-left">
+      Copyright &copy; 2017 powered by the moon in my heart
+    </div>
+    <div class="footer-right">
+      <nav>
+        <ul>
+
+            <li><a href="/">Home</a></li>
+
+            <li><a href="/about/">About</a></li>
+
+            <li><a href="/archives/">Writing</a></li>
+
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
+<!-- styles -->
+{% load static%}
+<link rel="stylesheet" href="{% static '/lib/font-awesome/css/font-awesome.min.css'%}">
+<link rel="stylesheet" href="{% static '/lib/meslo-LG/styles.css' %}">
+<link rel="stylesheet" href="{% static '/lib/justified-gallery/justifiedGallery.min.css' %}">
+
+<!-- jquery -->
+<script src="{% static '/lib/jquery/jquery.min.js' %}"></script>
+<script src="{% static '/lib/justified-gallery/jquery.justifiedGallery.min.js' %}"></script>
+<script src="{% static '/js/main.js' %}"></script>

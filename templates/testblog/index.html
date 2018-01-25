@@ -1,0 +1,58 @@
+{% extends 'testblog/base.html' %}
+
+{% block index %}
+ <header id="header">
+  <a href="/">
+
+      <div id="logo" style="background-image: url(static/images/favicon.ico);"></div>
+
+
+    <div id="title">
+      <h1>O Y S</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#"><i class="fa fa-bars fa-2x"></i></a>
+      </li>
+
+        <li><a href="/">Home</a></li>
+
+        <li><a href="/about/">About</a></li>
+
+        <li><a href="/archives/">Writing</a></li>
+
+    </ul>
+  </div>
+</header>
+
+
+        <section id="about">
+
+    <p>To Infinity… and Beyond</p>
+
+
+  <p style="display: inline">
+
+  </p>
+</section>
+
+<section id="writing">
+  <span class="h1"><a href="/archives">Writing</a></span>
+  <ul class="post-list">
+    {% for each in posts %}
+    <li class="post-item">
+      <div class="meta">
+      <time datetime="{{ each.created_time }}" itemprop="datePublished">{{ each.created_time | date:"M d Y" }}</time>
+    </div>
+
+        <span>
+          <a class="" href="{{ each.get_abs_url }}">{{ each.title }}</a>
+        </span>
+      </li>
+      {% endfor %}
+
+</section>
+
+{% endblock index %}

@@ -1,0 +1,22 @@
+{% extends 'testblog/base.html' %}
+
+{% block post%}
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    {%include 'testblog/partial/title.html' %}
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">{{post.author}}</span>
+      </span>
+      {% include 'testblog/partial/date.html'%}
+      {% include 'testblog/partial/tag.html'%}
+        </div>
+  </header>
+
+    <div class="content" itemprop="articleBody">
+        {{post.body | safe}}
+    </div>
+</article>
+
+{% endblock post%}
+
