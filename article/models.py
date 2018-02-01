@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
-
+from faker import Faker
+import MySQLdb
 
 
 # class Article(models.Model):
@@ -40,4 +41,22 @@ class Post(models.Model):
                                on_delete=models.CASCADE)
 
     def get_abs_url(self):
-        return reverse('article:read', kwargs={'title': self.title}) #每篇文章通过调用这个方法自动生成URL
+        # 每篇文章通过调用这个方法自动生成URL
+        return reverse('article:read', kwargs={'title': self.title})
+
+    def test_data(self):
+        fake = Faker()
+        db = MySQLdb.connect(host='localhost', user='root',
+                             password='grinee123', db='testblog')
+        x = db.cursor()
+
+        for i in range(6, 17):
+            try:
+                x.execute("INSERT INTO article_post VALUES(%s, %s, %s, %s, %s)",
+                          (i, fake.name(), fake.text(),
+                           fake.date() + ' ' + fake.time(),
+                           1))
+                db.commit()
+            except:
+                db.rollback()
+        db.close()

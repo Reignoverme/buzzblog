@@ -4,6 +4,7 @@ from . import views
 
 app_name = 'ariticle'
 urlpatterns = [
-    path('', views.home, name='index'),
-    path('post/<str:title>/', views.read, name='read')
+    path('', views.IndexView.as_view(), name='index'),
+    path('post/<str:title>/', views.read, name='read'),
+    path('archives/', views.archive, name='archive')
 ]

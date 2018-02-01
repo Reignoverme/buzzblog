@@ -48,7 +48,7 @@
     </div>
 
         <span>
-          <a class="" href="{{ each.get_abs_url }}">{{ each.title }}</a>
+          <a class="" href="{% url 'article:read' each.title%}">{{ each.title }}</a>
         </span>
       </li>
       {% endfor %}

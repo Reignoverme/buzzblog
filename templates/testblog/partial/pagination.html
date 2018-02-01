@@ -1,0 +1,9 @@
+    <div class="pagination">
+        {% if posts.has_previous %}
+        <a href="?page={{ posts.previous_page_number }}"><i class="fa fa-angle-left"></i></a>
+        {% endif %}
+        <span class="page-number">Page {{ page }} of {{ total_num }}</span>
+        {% if posts.has_next %}
+        <a href="?page={{ posts.next_page_number }}"><i class="fa fa-angle-right"></i></a>
+        {% endif %}
+    </div>
