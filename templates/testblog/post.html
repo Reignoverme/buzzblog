@@ -1,6 +1,30 @@
 {% extends 'testblog/base.html' %}
 
 
+{% block action %}
+<div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:block;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu" style="visibility: visible;">
+    <span id="nav">
+      <ul>
+          <li><a href="/">主页</a></li>
+          <li><a href="javascript:history.back(-1)">返回</a></li>
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+      </ul>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+    </span>
+  </span>
+</div>
+{% endblock action %}
+
+
 
 {% block post%}
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
@@ -19,6 +43,5 @@
         {{post.body | safe}}
     </div>
 </article>
-
 {% endblock post%}
 

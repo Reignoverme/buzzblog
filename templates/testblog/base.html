@@ -32,9 +32,8 @@
 </head>
 
 <body>
-    <!-- <% if (is_post()) { %>
-      <%- partial('_partial/post/actions_desktop') %>
-    <% } %> -->
+    {% block action %}
+    {% endblock action%}
 
     <div class="content index width mx-auto px2 my4">
 

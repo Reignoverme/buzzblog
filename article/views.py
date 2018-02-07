@@ -7,9 +7,13 @@ import markdown
 
 
 class IndexView(ListView):
-    model = Post
+    # model = Post
     template_name = 'testblog/index.html'
     context_object_name = 'posts'
+
+    def get_queryset(self):  # 重写get_queryset方法，只获取前15条记录给首页显示。
+        # return super(IndexView, self).get_queryset()[:15]
+        return Post.objects.order_by('-created_time')[:15]
 
 # def home(request):
 #     posts = Post.objects.all()
@@ -33,7 +37,7 @@ def read(request, title):
 
 
 def archive(request):
-    post_list = Post.objects.all()
+    post_list = Post.objects.order_by('-created_time')
     paginator = Paginator(post_list, 15)
     page = request.GET.get('page')
     total_num = paginator.num_pages
